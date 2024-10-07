@@ -10,7 +10,7 @@ pipeline {
                 sh '''
                 ls -al && pwd
                 ./mvnw clean install -DskipTests=true
-                docker build -t "spring-boot:chat-demo" .
+                docker build -t "spring-boot-websocket:chat-demo" .
                 docker images
                 '''
             }
