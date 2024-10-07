@@ -9,8 +9,8 @@ pipeline {
                 println "Build WORKSPACE ${WORKSPACE}"
                 sh '''
                 ls -al && pwd
-                ./mvnw clean install -DskipTests=true
-                docker build -t "spring-boot-websocket:chat-demo" .
+                mvn clean package 
+                docker build -t "spring-boot-chat:latest" .
                 docker images
                 '''
             }
