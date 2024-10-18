@@ -34,6 +34,13 @@ pipeline {
                 }
             }
         }
+        stage('test exception') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    sh "exit 1"
+                }
+            }
+        }
         stage('Generate Application SBOM') {
             steps{
                 script{
